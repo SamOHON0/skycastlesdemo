@@ -62,31 +62,35 @@
 <style>
   :root{
     --bg:#ffffff;
-    --surface:#f4f7f9;
-    --line:#dde5ea;
-    --line-strong:#c4d0d8;
-    --ink:#0f242e;
-    --ink-soft:#46606c;
-    --ink-faint:#7c919b;
-    --brand:#0a8bb0;       /* brighter teal-blue */
-    --brand-dark:#076a8a;
-    --brand-tint:#dcf0f6;
-    --accent:#0fa093;       /* brighter supporting teal */
+    --surface:#f6f4fb;
+    --line:#e4def0;
+    --line-strong:#cdc1e3;
+    --ink:#1d1330;
+    --ink-soft:#574a6e;
+    --ink-faint:#8b7da6;
+    --brand:#7c3aed;       /* vibrant purple */
+    --brand-dark:#5b21b6;
+    --brand-tint:#ede4fc;
+    --accent:#9333ea;       /* supporting purple */
     --wa:#25D366;
     --r:6px;
     --maxw:1240px;
-    --shadow:0 1px 2px rgba(15,36,46,.06), 0 1px 3px rgba(15,36,46,.05);
+    --shadow:0 1px 2px rgba(40,20,70,.07), 0 1px 3px rgba(40,20,70,.06);
   }
 
   *{box-sizing:border-box;margin:0;padding:0}
-  html{scroll-behavior:smooth}
+  html{scroll-behavior:smooth;overflow-x:hidden}
   body{
     font-family:'Archivo',system-ui,sans-serif;
     color:var(--ink);
     background:var(--bg);
     line-height:1.55;
     -webkit-font-smoothing:antialiased;
+    overflow-x:hidden;
+    width:100%;
+    position:relative;
   }
+  img,svg{max-width:100%}
   a{color:inherit;text-decoration:none}
   img{display:block;width:100%;height:100%;object-fit:cover}
   .wrap{max-width:var(--maxw);margin:0 auto;padding:0 24px}
@@ -105,7 +109,7 @@
   /* ===== TOP BAR ===== */
   .topbar{
     background:var(--brand-dark);
-    color:#dbeaf0;
+    color:#e9dffb;
     font-size:13px;
     font-family:'Archivo Narrow',sans-serif;
     letter-spacing:.02em;
@@ -155,12 +159,12 @@
   .hero-bg img{filter:saturate(1.02)}
   .hero-bg::after{
     content:"";position:absolute;inset:0;
-    background:linear-gradient(180deg,rgba(8,40,52,.30) 0%,rgba(8,40,52,.10) 38%,rgba(8,40,52,.78) 100%),
-               linear-gradient(90deg,rgba(8,40,52,.55) 0%,rgba(8,40,52,0) 60%);
+    background:linear-gradient(180deg,rgba(34,12,58,.30) 0%,rgba(34,12,58,.10) 38%,rgba(34,12,58,.78) 100%),
+               linear-gradient(90deg,rgba(34,12,58,.55) 0%,rgba(34,12,58,0) 60%);
   }
   .hero-inner{position:relative;z-index:2;width:100%;padding:0 0 46px}
   .hero h1{color:#fff;font-size:clamp(34px,5.4vw,60px);max-width:16ch;text-shadow:0 1px 24px rgba(0,0,0,.25)}
-  .hero p{color:#eaf3f6;font-size:clamp(16px,2vw,19px);max-width:52ch;margin-top:16px;font-weight:500}
+  .hero p{color:#f1e9fc;font-size:clamp(16px,2vw,19px);max-width:52ch;margin-top:16px;font-weight:500}
   .hero-actions{display:flex;gap:12px;margin-top:26px;flex-wrap:wrap}
   .btn{
     display:inline-flex;align-items:center;gap:9px;font-weight:600;font-size:16px;
@@ -171,9 +175,9 @@
   .btn-primary:hover{background:var(--brand-dark)}
   .btn-ghost{background:rgba(255,255,255,.12);color:#fff;border:1px solid rgba(255,255,255,.5);backdrop-filter:blur(4px)}
   .btn-ghost:hover{background:rgba(255,255,255,.22)}
-  .hero-meta{display:flex;gap:22px;margin-top:24px;flex-wrap:wrap;color:#dbeaf0;font-size:14px;font-weight:600;font-family:'Archivo Narrow',sans-serif;letter-spacing:.03em}
+  .hero-meta{display:flex;gap:22px;margin-top:24px;flex-wrap:wrap;color:#e9dffb;font-size:14px;font-weight:600;font-family:'Archivo Narrow',sans-serif;letter-spacing:.03em}
   .hero-meta span{display:inline-flex;align-items:center;gap:7px}
-  .hero-meta svg{width:16px;height:16px;color:#3fd4c4}
+  .hero-meta svg{width:16px;height:16px;color:#c9a8f5}
 
   /* ===== AREA / BOOK STRIP ===== */
   .strip{background:var(--surface);border-bottom:1px solid var(--line)}
@@ -272,13 +276,6 @@
   @media(max-width:480px){.gallery{grid-template-columns:repeat(3,1fr);gap:7px}}
 
   /* ===== TRUST ROW ===== */
-  .trust{background:var(--surface);border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
-  .trust .wrap{display:grid;grid-template-columns:repeat(4,1fr);gap:0}
-  .trust-cell{padding:30px 26px;border-right:1px solid var(--line);text-align:left}
-  .trust-cell:last-child{border-right:none}
-  .trust-cell .big{font-size:30px;font-weight:800;letter-spacing:-.02em;color:var(--brand-dark)}
-  .trust-cell p{font-size:14px;color:var(--ink-soft);margin-top:4px;font-weight:500}
-  @media(max-width:760px){.trust .wrap{grid-template-columns:1fr 1fr}.trust-cell:nth-child(odd){border-right:1px solid var(--line)}.trust-cell{border-bottom:1px solid var(--line)}}
 
   /* ===== REVIEWS ===== */
   .reviews{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
@@ -305,10 +302,10 @@
   .contact{background:var(--brand-dark);color:#fff}
   .contact .wrap{display:grid;grid-template-columns:1fr 1fr;gap:48px;align-items:start}
   .contact h2{font-size:clamp(26px,3.4vw,38px);color:#fff}
-  .contact .lede{color:#cfe5ec;font-size:16px;margin-top:12px;max-width:42ch}
+  .contact .lede{color:#ddccf5;font-size:16px;margin-top:12px;max-width:42ch}
   .contact-list{margin-top:26px;display:flex;flex-direction:column;gap:2px}
   .contact-list a,.contact-list div{display:flex;gap:12px;align-items:center;padding:12px 0;border-bottom:1px solid rgba(255,255,255,.14);font-size:16px;font-weight:500}
-  .contact-list svg{width:19px;height:19px;color:#8fd0c6;flex:none}
+  .contact-list svg{width:19px;height:19px;color:#c9a8f5;flex:none}
   form{background:#fff;border-radius:var(--r);padding:26px;color:var(--ink)}
   form .fld{margin-bottom:15px}
   form label{display:block;font-size:13px;font-weight:700;font-family:'Archivo Narrow',sans-serif;letter-spacing:.04em;text-transform:uppercase;color:var(--ink-soft);margin-bottom:6px}
@@ -318,20 +315,20 @@
   @media(max-width:820px){.contact .wrap{grid-template-columns:1fr;gap:32px}}
 
   /* ===== FOOTER ===== */
-  footer{background:#0a1a21;color:#9fb4bd;font-size:14px}
+  footer{background:#1a1030;color:#a99cc4;font-size:14px}
   footer .wrap{padding:48px 24px 28px}
   .foot-top{display:grid;grid-template-columns:2fr 1fr 1fr;gap:32px;padding-bottom:32px;border-bottom:1px solid rgba(255,255,255,.1)}
   .foot-brand{display:flex;align-items:center;gap:10px;color:#fff;font-weight:800;font-size:18px;margin-bottom:12px}
   .foot-brand .mark{width:30px;height:30px;border-radius:5px;background:var(--brand);display:grid;place-items:center}
   .foot-brand .mark svg{width:18px;height:18px}
   .foot-col h4{color:#fff;font-size:13px;text-transform:uppercase;letter-spacing:.08em;font-family:'Archivo Narrow',sans-serif;margin-bottom:14px}
-  .foot-col a{display:block;padding:5px 0;color:#9fb4bd;transition:color .15s}
+  .foot-col a{display:block;padding:5px 0;color:#a99cc4;transition:color .15s}
   .foot-col a:hover{color:#fff}
   .socials{display:flex;gap:10px;margin-top:16px}
   .socials a{width:38px;height:38px;border-radius:5px;border:1px solid rgba(255,255,255,.18);display:grid;place-items:center;transition:background .15s,border-color .15s}
   .socials a:hover{background:var(--brand);border-color:var(--brand)}
   .socials svg{width:18px;height:18px;color:#fff}
-  .foot-bottom{display:flex;justify-content:space-between;gap:16px;padding-top:22px;flex-wrap:wrap;font-size:13px;color:#6f8893}
+  .foot-bottom{display:flex;justify-content:space-between;gap:16px;padding-top:22px;flex-wrap:wrap;font-size:13px;color:#7d6fa0}
   @media(max-width:680px){.foot-top{grid-template-columns:1fr;gap:24px}}
 
   /* ===== FLOATING WIDGETS ===== */
@@ -345,7 +342,7 @@
   .chat-window.open{display:flex}
   .chat-head{background:var(--brand-dark);color:#fff;padding:16px 18px;display:flex;justify-content:space-between;align-items:center}
   .chat-head .ch-name{font-weight:700;font-size:15px}
-  .chat-head .ch-status{font-size:12px;color:#9fd3e3;display:flex;align-items:center;gap:6px}
+  .chat-head .ch-status{font-size:12px;color:#bda4e8;display:flex;align-items:center;gap:6px}
   .chat-head .ch-status::before{content:"";width:7px;height:7px;border-radius:50%;background:#4ade80}
   .chat-close{background:none;border:none;color:#fff;cursor:pointer;font-size:20px;line-height:1}
   .chat-body{padding:16px;max-height:300px;overflow-y:auto;display:flex;flex-direction:column;gap:10px;background:var(--surface)}
@@ -361,6 +358,63 @@
   @media(max-width:480px){.chat-window{bottom:150px}}
 
   [data-reveal]{opacity:0;transform:translateY(18px);transition:opacity .5s ease,transform .5s ease}
+
+  /* ===== CLOUDS ===== */
+  .clouds{position:absolute;inset:0;overflow:hidden;pointer-events:none;z-index:1}
+  .cloud{position:absolute;background:rgba(255,255,255,.82);border-radius:100px;filter:blur(.3px);opacity:.85;animation:drift linear infinite}
+  .cloud::before,.cloud::after{content:"";position:absolute;background:inherit;border-radius:50%}
+  .cloud::before{width:55%;height:140%;top:-55%;left:14%}
+  .cloud::after{width:42%;height:120%;top:-42%;right:16%}
+  .cloud.c1{top:14%;width:120px;height:34px;animation-duration:48s;animation-delay:0s;opacity:.7}
+  .cloud.c2{top:30%;width:170px;height:44px;animation-duration:64s;animation-delay:-20s;opacity:.55}
+  .cloud.c3{top:9%;width:90px;height:26px;animation-duration:54s;animation-delay:-38s;opacity:.6}
+  @keyframes drift{
+    from{transform:translateX(-220px)}
+    to{transform:translateX(calc(100vw + 220px))}
+  }
+  @media(prefers-reduced-motion:reduce){.cloud{animation:none}}
+
+  /* ===== BALLOONS ===== */
+  .balloons{position:absolute;inset:0;overflow:hidden;pointer-events:none;z-index:1}
+  .balloon{position:absolute;bottom:-140px;width:46px;height:58px;border-radius:50% 50% 48% 48%;opacity:.9;animation:floatUp linear infinite}
+  .balloon::before{content:"";position:absolute;bottom:-8px;left:50%;transform:translateX(-50%);width:2px;height:14px;background:rgba(255,255,255,.55)}
+  .balloon span{position:absolute;top:12%;left:22%;width:30%;height:34%;border-radius:50%;background:rgba(255,255,255,.4)}
+  .balloon.b1{left:8%;background:#a855f7;animation-duration:15s;animation-delay:0s;width:42px;height:54px}
+  .balloon.b2{left:24%;background:#c084fc;animation-duration:19s;animation-delay:3s;width:52px;height:66px}
+  .balloon.b3{left:62%;background:#8b5cf6;animation-duration:17s;animation-delay:6s;width:40px;height:52px}
+  .balloon.b4{left:80%;background:#d8b4fe;animation-duration:21s;animation-delay:1.5s;width:48px;height:60px}
+  .balloon.b5{left:46%;background:#9333ea;animation-duration:23s;animation-delay:8s;width:38px;height:50px}
+  @keyframes floatUp{
+    0%{transform:translateY(0) translateX(0) rotate(-4deg)}
+    50%{transform:translateY(-46vh) translateX(16px) rotate(4deg)}
+    100%{transform:translateY(-92vh) translateX(-10px) rotate(-3deg)}
+  }
+  @media(prefers-reduced-motion:reduce){.balloon{animation:none;display:none}}
+
+  /* ===== MOBILE CLEANUP ===== */
+  @media(max-width:640px){
+    .wrap{padding:0 16px}
+    section{padding:46px 0}
+    .sec-head{margin-bottom:24px}
+    .hero{min-height:clamp(400px,72vh,520px)}
+    .hero h1{font-size:clamp(28px,8vw,40px)}
+    .hero-actions .btn{flex:1;justify-content:center;min-width:0}
+    .strip-cell{padding:22px 18px}
+    .strip-row{flex-wrap:wrap}
+    .strip-row select,.strip-row input{flex:1 1 100%}
+    .strip-row .btn,.strip-row a.btn{flex:1 1 100%;justify-content:center}
+    .filters{gap:6px}
+    .filter-btn{font-size:13px;padding:7px 12px}
+    .whatsapp-float{right:16px;bottom:16px}
+    .chat-btn{right:16px;bottom:80px}
+    .chat-window{right:12px;left:12px;width:auto;max-width:none}
+    .balloon{transform:scale(.7)}
+  }
+  @media(max-width:380px){
+    .hero-meta{gap:12px;font-size:13px}
+    .nav .wrap{gap:12px}
+    .brand{font-size:17px}
+  }
 </style>
 </head>
 <body>
@@ -412,6 +466,18 @@
 <section class="hero" id="top">
   <div class="hero-bg">
     <img src="https://bouncycastlenetwork-res.cloudinary.com/578b20c44fa1a5efad22c5ad45261cbb.jpg" alt="Bouncy castle hire in Cork by Sky Castles Cork" loading="eager">
+  </div>
+  <div class="clouds" aria-hidden="true">
+    <div class="cloud c1"></div>
+    <div class="cloud c2"></div>
+    <div class="cloud c3"></div>
+  </div>
+  <div class="balloons" aria-hidden="true">
+    <div class="balloon b1"><span></span></div>
+    <div class="balloon b2"><span></span></div>
+    <div class="balloon b3"><span></span></div>
+    <div class="balloon b4"><span></span></div>
+    <div class="balloon b5"><span></span></div>
   </div>
   <div class="hero-inner">
     <div class="wrap">
@@ -545,16 +611,6 @@
   </div>
 </section>
 
-<!-- ===== TRUST ROW ===== -->
-<div class="trust">
-  <div class="wrap">
-    <div class="trust-cell"><div class="big">2018</div><p>Family run since</p></div>
-    <div class="trust-cell"><div class="big">60+</div><p>Five-star reviews</p></div>
-    <div class="trust-cell"><div class="big">&lt;3 yrs</div><p>Every unit's age</p></div>
-    <div class="trust-cell"><div class="big">IIHF</div><p>Federation member</p></div>
-  </div>
-</div>
-
 <!-- ===== HOW IT WORKS ===== -->
 <section id="how">
   <div class="wrap">
@@ -666,7 +722,7 @@
     <div class="foot-top">
       <div>
         <div class="foot-brand"><span class="mark"><svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 21V10l9-7 9 7v11"/><path d="M3 14h18"/><path d="M9 21v-5h6v5"/></svg></span>Sky Castles Cork</div>
-        <p style="max-width:34ch;color:#9fb4bd">Family run bouncy castle, inflatable and party hire across Cork City and County Cork since 2018.</p>
+        <p style="max-width:34ch;color:#a99cc4">Family run bouncy castle, inflatable and party hire across Cork City and County Cork since 2018.</p>
         <div class="socials">
           <a href="https://www.facebook.com/skycastlescork" target="_blank" rel="noopener" aria-label="Facebook"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M22 12a10 10 0 1 0-11.5 9.9v-7H8v-2.9h2.5V9.8c0-2.5 1.5-3.9 3.8-3.9 1.1 0 2.2.2 2.2.2v2.5h-1.3c-1.2 0-1.6.8-1.6 1.6v1.9h2.8l-.4 2.9h-2.4v7A10 10 0 0 0 22 12Z"/></svg></a>
           <a href="https://www.instagram.com/skycastlescork" target="_blank" rel="noopener" aria-label="Instagram"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"/></svg></a>
@@ -687,7 +743,7 @@
         <a href="tel:0873148418">087 314 8418</a>
         <a href="#book">Check your area</a>
         <a href="#contact">Send an enquiry</a>
-        <span style="display:block;padding:5px 0;color:#9fb4bd">Ballinhassig, Co. Cork</span>
+        <span style="display:block;padding:5px 0;color:#a99cc4">Ballinhassig, Co. Cork</span>
       </div>
     </div>
     <div class="foot-bottom">
